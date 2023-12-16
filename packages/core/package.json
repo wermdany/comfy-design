@@ -1,0 +1,20 @@
+{
+  "name": "@comfy-design/core",
+  "version": "0.0.0",
+  "description": "A JavaScript Poster Design Tools",
+  "type": "module",
+  "keywords": [
+    "poster",
+    "design",
+    "psd"
+  ],
+  "author": "wermdany <https://github.com/wermdany>",
+  "license": "MIT",
+  "dependencies": {
+    "@comfy-design/shared": "workspace:*"
+  },
+  "packageManager": "pnpm@7.11.0",
+  "engines": {
+    "node": "^16.11.0 || ^17.0.0"
+  }
+}

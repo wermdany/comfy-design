@@ -1,0 +1,21 @@
+{
+  "name": "@comfy-design/shared",
+  "version": "0.0.0",
+  "description": "@comfy-design/shared",
+  "type": "module",
+  "main": "index.js",
+  "module": "dist/shared.esm-bundler.js",
+  "types": "dist/shared.d.ts",
+  "keywords": [
+    "poster",
+    "design",
+    "psd"
+  ],
+  "author": "wermdany <https://github.com/wermdany>",
+  "license": "MIT",
+  "dependencies": {},
+  "packageManager": "pnpm@7.11.0",
+  "engines": {
+    "node": "^16.11.0 || ^17.0.0"
+  }
+}

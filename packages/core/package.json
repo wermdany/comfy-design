@@ -11,7 +11,8 @@
   "author": "wermdany <https://github.com/wermdany>",
   "license": "MIT",
   "dependencies": {
-    "@comfy-design/shared": "workspace:*"
+    "@comfy-design/shared": "workspace:*",
+    "mitt": "^3.0.1"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

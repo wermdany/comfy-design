@@ -1,9 +1,17 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "stripInternal": true
+    "composite": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ESNext"],
+    "types": ["node"]
   },
-  "exclude": []
+  "include": [
+    "scripts/*.ts",
+    "packages/*/src/**/scripts/*.ts",
+    "packages/ui/vite.config.ts",
+    "package.json"
+  ]
 }

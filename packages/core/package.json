@@ -12,6 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "@comfy-design/shared": "workspace:*",
+    "@leafer-ui/interface": "1.0.0-rc.19",
+    "leafer-ui": "1.0.0-rc.19",
     "mitt": "^3.0.1"
   },
   "packageManager": "pnpm@7.11.0",

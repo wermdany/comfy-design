@@ -19,11 +19,18 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["vitest/globals"],
+    "types": [],
     "rootDir": ".",
     "paths": {
-      "@comfy-design/*": ["packages/*/src"]
+      "@comfy-design/*": ["packages/*/src"],
+      "@/*": ["packages/ui/src/*"]
     }
   },
-  "include": ["packages/global.d.ts", "packages/*/src"]
+  "include": ["packages/global.d.ts", "packages/*/src"],
+  "exclude": ["scripts/*.ts", "packages/*/dist/*"],
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
 }

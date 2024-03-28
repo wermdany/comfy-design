@@ -14,7 +14,7 @@ interface SystemStoreState {
 export const useSystemStore = defineStore('SystemStore', {
   state: (): SystemStoreState => ({
     lang: 'zh_CN',
-    mode: 'light'
+    mode: 'dark'
   }),
   getters: {
     locale: state => useAntDesignVueLocale(state.lang),

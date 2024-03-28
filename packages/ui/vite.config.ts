@@ -15,12 +15,19 @@ export default defineConfig(({ mode }) => {
         {
           find: /^@comfy-design\/(.*)/,
           replacement: resolve(__dirname, '../$1/src')
+        },
+        {
+          find: 'comfy-design',
+          replacement: resolve(__dirname, '../comfy-design/src')
         }
       ]
     : []
 
+  const watchDefine = isWatchAliasModule ? { __DEV__: true } : {}
+
   return {
     plugins: [vue()],
+    define: watchDefine,
     resolve: {
       alias: [
         ...watchAlias,

@@ -9,7 +9,7 @@ declare module 'vue-router' {
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/views/editer/index.vue')
+    component: () => import('@/views/workspace/index.vue')
   },
   {
     path: '/setting',

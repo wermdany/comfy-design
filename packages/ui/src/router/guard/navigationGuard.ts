@@ -6,7 +6,6 @@ import type { Router } from 'vue-router'
  */
 export function createNavigationGuard(router: Router) {
   router.beforeEach((to, from, next) => {
-    console.log(from.meta)
     next()
   })
 }

@@ -14,8 +14,9 @@ module.exports = {
     'no-redeclare': 'off',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
-    '@typescript-eslint/no-redeclare': 'error',
+    '@typescript-eslint/no-redeclare': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unsafe-declaration-merging': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',

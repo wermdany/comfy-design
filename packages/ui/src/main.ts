@@ -18,5 +18,5 @@ const app = createApp(App)
 
   await router.isReady()
 
-  app.mount('#app')
+  app.mount('#comfy-design')
 })()

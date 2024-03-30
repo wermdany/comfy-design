@@ -23,6 +23,7 @@
     "rootDir": ".",
     "paths": {
       "@comfy-design/*": ["packages/*/src"],
+      "comfy-design": ["packages/comfy-design/src"],
       "@/*": ["packages/ui/src/*"]
     }
   },

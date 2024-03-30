@@ -1,7 +1,7 @@
 {
-  "name": "@comfy-design/core",
+  "name": "comfy-design",
   "version": "0.0.0",
-  "description": "@comfy-design/core",
+  "description": "comfy-design",
   "type": "module",
   "keywords": [
     "poster",
@@ -11,10 +11,10 @@
   "author": "wermdany <https://github.com/wermdany>",
   "license": "MIT",
   "dependencies": {
-    "@comfy-design/shared": "workspace:*",
-    "@leafer-in/editor": "1.0.0-rc.19",
-    "@leafer-ui/interface": "1.0.0-rc.19",
-    "leafer-ui": "1.0.0-rc.19"
+    "@comfy-design/core": "workspace:*",
+    "@comfy-design/ruler": "workspace:*",
+    "@comfy-design/editor": "workspace:*",
+    "@comfy-design/grid": "workspace:*"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

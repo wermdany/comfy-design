@@ -1,8 +1,8 @@
 @import 'ant-design-vue/dist/reset.css';
 
 body {
-  color: var(--color-text);
-  font-size: var(--font-size);
-  font-family: var(--font-family);
-  background: var(--color-bg-container);
+  color: var(--ant-color-text);
+  font-size: var(--ant-font-size);
+  font-family: var(--ant-font-family);
+  background: var(--ant-color-bg-container);
 }

@@ -1,8 +1,11 @@
 {
-  "name": "@comfy-design/core",
+  "name": "@comfy-design/grid",
   "version": "0.0.0",
-  "description": "@comfy-design/core",
+  "description": "@comfy-design/grid",
   "type": "module",
+  "main": "index.js",
+  "module": "dist/grid.esm-bundler.js",
+  "types": "dist/grid.d.ts",
   "keywords": [
     "poster",
     "design",
@@ -12,8 +15,10 @@
   "license": "MIT",
   "dependencies": {
     "@comfy-design/shared": "workspace:*",
-    "@leafer-in/editor": "1.0.0-rc.19",
+    "@comfy-design/core": "workspace:*",
     "@leafer-ui/interface": "1.0.0-rc.19",
+    "@leafer-ui/core": "1.0.0-rc.19",
+    "@leafer-in/editor": "1.0.0-rc.19",
     "leafer-ui": "1.0.0-rc.19"
   },
   "packageManager": "pnpm@7.11.0",

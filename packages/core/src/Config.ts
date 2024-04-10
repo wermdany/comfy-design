@@ -1,6 +1,5 @@
 import { logger } from './Util'
 
-import { type DropTypes, merge } from '@comfy-design/shared'
 import type { Theme } from './Types'
 
 export interface CustomConfig {}
@@ -41,22 +40,5 @@ export class ComfyDesignConfigCtor extends CustomConfig implements DefConfig {
     }
 
     return this
-  }
-
-  public setDefault<T extends keyof CustomConfig>(
-    scope: T,
-    def: DropTypes<NonNullable<CustomConfig[T]>, boolean>
-  ) {
-    const input = this[scope] as NonNullable<CustomConfig[T]>
-
-    this[scope] = merge(def, input)
-
-    return this[scope] as Required<DropTypes<NonNullable<CustomConfig[T]>, boolean>>
-  }
-
-  public getDefault<T extends keyof CustomConfig>(scope: T) {
-    if (scope in this) {
-      return this[scope] as CustomConfig[T]
-    }
   }
 }

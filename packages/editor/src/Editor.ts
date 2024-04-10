@@ -1,6 +1,7 @@
 import { Bounds, Box, Text } from 'leafer-ui'
 import { Editor, EditorEvent, EditorScaleEvent } from '@leafer-in/editor'
-import { PluginOrder } from '@comfy-design/core'
+import { mergeConfig } from '@comfy-design/shared'
+import { PluginOrder, withPluginsProxyProperty } from '@comfy-design/core'
 
 import type { IBoundsData, IUI, IEditorConfig } from '@leafer-ui/interface'
 import type { ComfyDesign } from '@comfy-design/core'
@@ -34,7 +35,7 @@ export class ComfyDesignEditor {
   private config: EditorConfig
 
   constructor(private design: ComfyDesign) {
-    this.config = this.design.config.setDefault('editor', defaultEditorConfig)
+    this.config = mergeConfig(defaultEditorConfig, design.config.editor)
 
     this.text = this.createText()
     this.editor = this.createEditor()
@@ -47,6 +48,8 @@ export class ComfyDesignEditor {
     this.editor.on(EditorScaleEvent.SCALE, this.handleEditorScale.bind(this))
 
     this.initEditor()
+
+    design.registerProxyProperty(withPluginsProxyProperty(ComfyDesignEditor))
   }
 
   private initEditor() {
@@ -106,8 +109,19 @@ export class ComfyDesignEditor {
   }
 }
 
+interface ComfyDesignEditorApi {
+  /**
+   * @proxy editor
+   */
+  editor: ComfyDesignEditor
+}
+
 declare module '@comfy-design/core' {
   interface CustomConfig {
     editor?: ComfyDesignEditorConfig
+  }
+
+  interface CustomApi {
+    editor: ComfyDesignEditorApi
   }
 }

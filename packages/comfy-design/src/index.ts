@@ -1,13 +1,12 @@
 import { ComfyDesign } from '@comfy-design/core'
-import { ComfyDesignRuler } from '@comfy-design/ruler'
 import { ComfyDesignEditor } from '@comfy-design/editor'
-import { ComfyDesignGrid } from '@comfy-design/grid'
+import { ComfyDesignToolkit, Ruler, Grid } from '@comfy-design/toolkit'
 
 export { createComfyDesign } from '@comfy-design/core'
 export type { CustomConfig, CustomApi } from '@comfy-design/core'
 
-export { ComfyDesignRuler, ComfyDesignEditor, ComfyDesignGrid }
+export { ComfyDesignEditor, ComfyDesignToolkit, Ruler, Grid }
 
-ComfyDesign.use(ComfyDesignEditor).use(ComfyDesignRuler).use(ComfyDesignGrid)
+ComfyDesign.use(ComfyDesignEditor).use(ComfyDesignToolkit)
 
 export default ComfyDesign

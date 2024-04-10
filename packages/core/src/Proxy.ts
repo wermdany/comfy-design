@@ -9,21 +9,21 @@ export interface RegisterProxyPropertyItem {
 
 export interface ProxyImpApi {
   /**
-   * @proxy
+   * @proxy core
    */
   registerProxyProperty: (property: RegisterProxyPropertyItem) => void
   /**
-   * @proxy
+   * @proxy core
    */
   registerProxyProperties: (properties: RegisterProxyPropertyItem[]) => void
 }
 
-export function withPluginsProxyProperty(plugin: DesignPlugin, property: string): RegisterProxyPropertyItem {
+export function withPluginsProxyProperty(plugin: DesignPlugin, property?: string): RegisterProxyPropertyItem {
   const { pluginName } = plugin
 
   return {
-    sourceKey: ['plugins', pluginName, property].join('.'),
-    key: property
+    sourceKey: ['plugins', pluginName, property].filter(Boolean).join('.'),
+    key: property || pluginName
   }
 }
 

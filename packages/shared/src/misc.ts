@@ -1,4 +1,4 @@
-import { type AnyObject, isFun, isObject, isPlainObj } from './is'
+import { type AnyObject, isFun, isObject } from './is'
 
 export function noop() {}
 
@@ -45,16 +45,18 @@ export function proxyProperty(target: Record<string, any>, sourceKey: string, ke
   })
 }
 
-export function merge<T extends AnyObject>(a: T, b: T): T {
-  const merged = Object.assign({}, a)
+export function mergeConfig<T extends AnyObject>(a: T, b: unknown): T {
+  const merged = Object.assign({}, a) as T
+
+  if (!isObject(b)) return merged
 
   for (const key in b) {
     const value = b[key]
 
-    if (key in merge && isPlainObj(value)) {
-      merged[key] = merge(merged[key], b[key])
+    if (isObject(value)) {
+      merged[key as keyof T] = mergeConfig(merged[key], b[key])
     } else {
-      merged[key] = value
+      merged[key as keyof T] = value
     }
   }
 

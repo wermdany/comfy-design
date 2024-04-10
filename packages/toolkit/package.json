@@ -1,11 +1,11 @@
 {
-  "name": "@comfy-design/ruler",
+  "name": "@comfy-design/toolkit",
   "version": "0.0.0",
-  "description": "@comfy-design/ruler",
+  "description": "@comfy-design/toolkit",
   "type": "module",
   "main": "index.js",
-  "module": "dist/ruler.esm-bundler.js",
-  "types": "dist/ruler.d.ts",
+  "module": "dist/toolkit.esm-bundler.js",
+  "types": "dist/toolkit.d.ts",
   "keywords": [
     "poster",
     "design",
@@ -17,7 +17,9 @@
     "@comfy-design/shared": "workspace:*",
     "@comfy-design/core": "workspace:*",
     "@leafer-ui/interface": "1.0.0-rc.19",
-    "@leafer-ui/core": "1.0.0-rc.19"
+    "@leafer-ui/core": "1.0.0-rc.19",
+    "@leafer-in/editor": "1.0.0-rc.19",
+    "leafer-ui": "1.0.0-rc.19"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

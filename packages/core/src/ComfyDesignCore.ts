@@ -40,15 +40,15 @@ export enum ComfyDesignEvent {
 
 export interface ComfyDesignCtor extends ProxyImpApi {
   /**
-   * @proxy
+   * @proxy core
    */
   Tree: ILeafer
   /**
-   * @proxy
+   * @proxy core
    */
   Sky: ILeafer
   /**
-   * @proxy
+   * @proxy core
    */
   Ground: ILeafer
 }
@@ -132,7 +132,13 @@ export class ComfyDesignCtor<C = {}> extends EventEmitter {
     const app = new App({
       view: this.config.view,
       sky: { type: 'draw', usePartRender: false },
-      tree: { wheel: { zoomSpeed: 0.1 } },
+      tree: {
+        wheel: { zoomSpeed: 0.1 },
+        pointer: {
+          // 更加精准的操作半径
+          hitRadius: 0
+        }
+      },
       ground: { type: 'draw', usePartRender: false }
     })
 

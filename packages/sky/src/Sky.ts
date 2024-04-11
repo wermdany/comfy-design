@@ -1,24 +1,21 @@
 import { RenderEvent } from 'leafer-ui'
 import { ComfyDesignEvent, withPluginsProxyProperty } from '@comfy-design/core'
+import { Grid, Ruler, RulerDarkTheme, RulerLightTheme } from '@comfy-design/shapes'
 import { mergeConfig } from '@comfy-design/shared'
-
-import { Grid } from './Grid'
-import { Ruler, RulerLightTheme, RulerDarkTheme } from './Ruler'
 
 import type { IEventListenerId } from '@leafer-ui/interface'
 import type { ComfyDesign } from '@comfy-design/core'
 
-import type { IGridInputData } from './Grid'
-import type { IRulerInputData } from './Ruler'
+import type { IRulerInputData, IGridInputData } from '@comfy-design/shapes'
 
-export interface ToolkitConfig {
+export interface SkyConfig {
   grid?: Partial<IGridInputData>
   ruler?: Partial<IRulerInputData>
 }
 
-export type ComfyDesignToolkitConfig = Partial<ToolkitConfig> | true
+export type ComfyDesignSkyConfig = Partial<SkyConfig> | true
 
-const defaultToolkitConfig: ToolkitConfig = {
+const defaultSkyConfig: SkyConfig = {
   grid: {
     visible: true,
     minScale: 8,
@@ -35,32 +32,38 @@ const defaultToolkitConfig: ToolkitConfig = {
   }
 }
 
-export class ComfyDesignToolkit {
-  static pluginName = 'toolkit'
+export class ComfyDesignSky {
+  static pluginName = 'sky'
 
-  private config: ToolkitConfig
+  private config: SkyConfig
   private grid: Grid
   private ruler: Ruler
 
   private __eventIds: IEventListenerId[] = []
 
   constructor(public design: ComfyDesign) {
-    this.config = mergeConfig(defaultToolkitConfig, design.config.toolkit)
+    this.config = mergeConfig(defaultSkyConfig, design.config.sky)
 
-    const tree = this.design.Tree
-
-    this.grid = new Grid(tree, this.config.grid)
-    this.ruler = new Ruler(tree, this.config.ruler)
+    this.grid = new Grid(this.config.grid)
+    this.ruler = new Ruler(this.config.ruler)
 
     this.design.Sky.add(this.grid, -2)
     this.design.Sky.add(this.ruler, 2)
 
     this.bindEvents()
 
-    design.registerProxyProperty(withPluginsProxyProperty(ComfyDesignToolkit))
+
+    console.log(design.registerProxyProperties)
+
+    /**
+     * proxy 'grid' 'ruler' to ComfyDesign
+     */
+    design.registerProxyProperties(
+      ['grid', 'ruler'].map(key => withPluginsProxyProperty(ComfyDesignSky, key))
+    )
   }
 
-  public update() {
+  private update() {
     this.grid.forceUpdate()
     this.ruler.forceUpdate()
   }
@@ -94,19 +97,25 @@ export class ComfyDesignToolkit {
   }
 }
 
-interface ComfyDesignToolkitApi {
+interface ComfyDesignSkyApi {
   /**
-   * @proxy toolkit
+   * 比例尺实例
+   * @proxy sky
    */
-  toolkit: ComfyDesignToolkit
+  ruler: Ruler
+  /**
+   * 网格实例
+   * @proxy sky
+   */
+  grid: Grid
 }
 
 declare module '@comfy-design/core' {
   interface CustomConfig {
-    toolkit?: ComfyDesignToolkitConfig
+    sky?: ComfyDesignSkyConfig
   }
 
   interface CustomApi {
-    toolkit: ComfyDesignToolkitApi
+    sky: ComfyDesignSkyApi
   }
 }

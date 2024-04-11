@@ -9,10 +9,12 @@ export interface RegisterProxyPropertyItem {
 
 export interface ProxyImpApi {
   /**
+   * 代理一个属性到 ComfyDesign
    * @proxy core
    */
   registerProxyProperty: (property: RegisterProxyPropertyItem) => void
   /**
+   * 代理多个属性到 ComfyDesign
    * @proxy core
    */
   registerProxyProperties: (properties: RegisterProxyPropertyItem[]) => void

@@ -40,14 +40,17 @@ export enum ComfyDesignEvent {
 
 export interface ComfyDesignCtor extends ProxyImpApi {
   /**
+   * 渲染层 - 结构层
    * @proxy core
    */
   Tree: ILeafer
   /**
+   * 渲染层 - 天空层
    * @proxy core
    */
   Sky: ILeafer
   /**
+   * 渲染层 - 背景层
    * @proxy core
    */
   Ground: ILeafer
@@ -59,8 +62,8 @@ export const defaultProxyProperty: RegisterProxyPropertyItem[] = [
     sourceKey: 'Proxy.registerProxyProperty'
   },
   {
-    key: 'resisterProxyProperties',
-    sourceKey: 'Proxy.resisterProxyProperties'
+    key: 'registerProxyProperties',
+    sourceKey: 'Proxy.registerProxyProperties'
   },
   {
     key: 'Tree',

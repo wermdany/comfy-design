@@ -1,11 +1,11 @@
 import { UI, UIData, dataProcessor, registerUI, surfaceType } from 'leafer-ui'
-
-import type { ICanvasContext2D, ILeafer, ILeaferCanvas, IUIData, IUIInputData } from '@leafer-ui/interface'
-
-import type { ScreenViewPort } from './Types'
 import { getClosestValue } from '@comfy-design/shared'
 
-const PI = Math.PI
+import { transformContext, getLeaferLayer, getScreenViewPort } from './Utils'
+
+import type { ICanvasContext2D, ILeaferCanvas, IUIData, IUIInputData } from '@leafer-ui/interface'
+
+import type { ScreenViewPort } from './Types'
 
 interface RulerRenderData {
   rulerSize: number
@@ -56,7 +56,7 @@ export const RulerDarkTheme: IRulerInputData = {
 @registerUI()
 export class Ruler extends UI {
   public get __tag() {
-    return 'Toolkit.Ruler'
+    return 'Ruler'
   }
 
   @dataProcessor(RulerData)
@@ -89,26 +89,8 @@ export class Ruler extends UI {
     return this.marginSize + this.fontSize + this.gapSize + this.markLineSize + this.outBorderSize
   }
 
-  constructor(
-    public tree?: ILeafer,
-    data?: IRulerInputData
-  ) {
+  constructor(data?: IRulerInputData) {
     super(data)
-  }
-
-  private getViewProt(): ScreenViewPort {
-    const { a, d, e, f } = this.tree!.getTransform()
-
-    const { width, height } = this.tree!
-
-    return {
-      scaleX: a,
-      scaleY: d,
-      offsetX: e,
-      offsetY: f,
-      width: width!,
-      height: height!
-    }
   }
 
   private getRulerData(): RulerRenderData {
@@ -189,9 +171,9 @@ export class Ruler extends UI {
 
       this.drawLine(ctx, x + gapSize, y, rulerSize, y)
 
-      transformContext(ctx, -PI / 2, x, y)
+      transformContext(ctx, -Math.PI / 2, x, y)
       ctx.fillText(String(startText), x, y)
-      transformContext(ctx, PI / 2, x, y)
+      transformContext(ctx, Math.PI / 2, x, y)
 
       startText += step
       realStart += step
@@ -219,8 +201,13 @@ export class Ruler extends UI {
   }
 
   public __draw(canvas: ILeaferCanvas) {
+    const tree = getLeaferLayer(this, 'tree')
+    if (!tree) return
+
     const ctx = canvas.context
-    const vp = this.getViewProt()
+
+    const vp = getScreenViewPort(tree)
+
     const data = this.getRulerData()
 
     canvas.setStroke(this.stroke, this.__.__strokeWidth, this.__)
@@ -270,10 +257,4 @@ export function getStepByZoom(zoom: number) {
     if (steps[i] >= step) return steps[i]
   }
   return steps[0]
-}
-
-export function transformContext(ctx: ICanvasContext2D, angle: number, x: number, y: number) {
-  ctx.translate(x, y)
-  ctx.rotate(angle)
-  ctx.translate(-x, -y)
 }

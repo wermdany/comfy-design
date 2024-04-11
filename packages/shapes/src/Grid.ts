@@ -1,6 +1,8 @@
 import { UI, UIData, dataProcessor, registerUI, surfaceType } from 'leafer-ui'
 
-import type { ICanvasContext2D, ILeafer, ILeaferCanvas, IUIData, IUIInputData } from '@leafer-ui/interface'
+import { getLeaferLayer, getScreenViewPort } from './Utils'
+
+import type { ICanvasContext2D, ILeaferCanvas, IUIData, IUIInputData } from '@leafer-ui/interface'
 
 import type { ScreenViewPort } from './Types'
 
@@ -16,7 +18,7 @@ class GridData extends UIData implements IGridData {}
 @registerUI()
 export class Grid extends UI {
   public get __tag() {
-    return 'Toolkit.Grid'
+    return 'Grid'
   }
 
   @dataProcessor(GridData)
@@ -30,25 +32,8 @@ export class Grid extends UI {
 
   public hittable = false
 
-  constructor(
-    public tree?: ILeafer,
-    data?: IGridInputData
-  ) {
+  constructor(data?: IGridInputData) {
     super(data)
-  }
-
-  private getViewProt(): ScreenViewPort {
-    const { width, height } = this.tree!
-    const { a, d, e, f } = this.tree!.getTransform()
-
-    return {
-      scaleX: a,
-      scaleY: d,
-      offsetX: e,
-      offsetY: f,
-      width: width!,
-      height: height!
-    }
   }
 
   private drawLine(ctx: ICanvasContext2D, x1: number, y1: number, x2: number, y2: number) {
@@ -104,7 +89,11 @@ export class Grid extends UI {
   }
 
   public __draw(canvas: ILeaferCanvas) {
-    const vp = this.getViewProt()
+    const tree = getLeaferLayer(this, 'tree')
+
+    if (!tree) return
+
+    const vp = getScreenViewPort(tree)
 
     if (vp.scaleX <= this.minScale || vp.scaleY <= this.minScale) return
 
@@ -123,7 +112,6 @@ export class Grid extends UI {
   }
 
   destroy(): void {
-    this.tree = undefined
     super.destroy()
   }
 }

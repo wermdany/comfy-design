@@ -12,7 +12,7 @@ import WorkspaceNav from '@/views/workspace/EditerWorkspace/WorkspaceNav/index.v
 import WorkspacePanel from '@/views/workspace/EditerWorkspace/WorkspacePanel/index.vue'
 import WorkspaceView from '@/views/workspace/EditerWorkspace/WorkspaceView/index.vue'
 
-const design = ComfyDesign({ view: 'workspace-view', editor: true, toolkit: true })
+const design = ComfyDesign({ view: 'workspace-view', editor: true, sky: true })
 
 const system = useSystemStore()
 

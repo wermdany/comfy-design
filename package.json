@@ -12,7 +12,8 @@
     "tsc": "tsc -p tsconfig.build.json",
     "ui:dev": "pnpm --filter comfy-design-ui dev",
     "ui:watch": "pnpm --filter comfy-design-ui watch",
-    "ui:build": "pnpm --filter comfy-design-ui build"
+    "ui:build": "pnpm --filter comfy-design-ui build",
+    "ui:build:watch": "pnpm --filter comfy-design-ui build:watch"
   },
   "keywords": [
     "poster",

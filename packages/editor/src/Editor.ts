@@ -111,6 +111,7 @@ export class ComfyDesignEditor {
 
 interface ComfyDesignEditorApi {
   /**
+   * 编辑工具实例
    * @proxy editor
    */
   editor: ComfyDesignEditor

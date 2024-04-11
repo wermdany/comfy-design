@@ -36,13 +36,11 @@ importers:
     specifiers:
       '@comfy-design/core': workspace:*
       '@comfy-design/editor': workspace:*
-      '@comfy-design/grid': workspace:*
-      '@comfy-design/ruler': workspace:*
+      '@comfy-design/sky': workspace:*
     dependencies:
       '@comfy-design/core': link:../core
       '@comfy-design/editor': link:../editor
-      '@comfy-design/grid': link:../grid
-      '@comfy-design/ruler': link:../ruler
+      '@comfy-design/sky': link:../sky
 
   packages/core:
     specifiers:
@@ -72,36 +70,38 @@ importers:
       '@leafer-ui/interface': 1.0.0-rc.19
       leafer-ui: 1.0.0-rc.19
 
-  packages/grid:
+  packages/shapes:
     specifiers:
-      '@comfy-design/core': workspace:*
       '@comfy-design/shared': workspace:*
-      '@leafer-in/editor': 1.0.0-rc.19
       '@leafer-ui/core': 1.0.0-rc.19
       '@leafer-ui/interface': 1.0.0-rc.19
       leafer-ui: 1.0.0-rc.19
     dependencies:
-      '@comfy-design/core': link:../core
       '@comfy-design/shared': link:../shared
-      '@leafer-in/editor': 1.0.0-rc.19
       '@leafer-ui/core': 1.0.0-rc.19
       '@leafer-ui/interface': 1.0.0-rc.19
       leafer-ui: 1.0.0-rc.19
-
-  packages/ruler:
-    specifiers:
-      '@comfy-design/core': workspace:*
-      '@comfy-design/shared': workspace:*
-      '@leafer-ui/core': 1.0.0-rc.19
-      '@leafer-ui/interface': 1.0.0-rc.19
-    dependencies:
-      '@comfy-design/core': link:../core
-      '@comfy-design/shared': link:../shared
-      '@leafer-ui/core': 1.0.0-rc.19
-      '@leafer-ui/interface': 1.0.0-rc.19
 
   packages/shared:
     specifiers: {}
+
+  packages/sky:
+    specifiers:
+      '@comfy-design/core': workspace:*
+      '@comfy-design/shapes': workspace:*
+      '@comfy-design/shared': workspace:*
+      '@leafer-in/editor': 1.0.0-rc.19
+      '@leafer-ui/core': 1.0.0-rc.19
+      '@leafer-ui/interface': 1.0.0-rc.19
+      leafer-ui: 1.0.0-rc.19
+    dependencies:
+      '@comfy-design/core': link:../core
+      '@comfy-design/shapes': link:../shapes
+      '@comfy-design/shared': link:../shared
+      '@leafer-in/editor': 1.0.0-rc.19
+      '@leafer-ui/core': 1.0.0-rc.19
+      '@leafer-ui/interface': 1.0.0-rc.19
+      leafer-ui: 1.0.0-rc.19
 
   packages/ui:
     specifiers:

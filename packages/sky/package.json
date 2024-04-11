@@ -1,0 +1,29 @@
+{
+  "name": "@comfy-design/sky",
+  "version": "0.0.0",
+  "description": "@comfy-design/sky",
+  "type": "module",
+  "main": "index.js",
+  "module": "dist/sky.esm-bundler.js",
+  "types": "dist/sky.d.ts",
+  "keywords": [
+    "poster",
+    "design",
+    "psd"
+  ],
+  "author": "wermdany <https://github.com/wermdany>",
+  "license": "MIT",
+  "dependencies": {
+    "@comfy-design/shared": "workspace:*",
+    "@comfy-design/core": "workspace:*",
+    "@comfy-design/shapes": "workspace:*",
+    "@leafer-ui/interface": "1.0.0-rc.19",
+    "@leafer-ui/core": "1.0.0-rc.19",
+    "@leafer-in/editor": "1.0.0-rc.19",
+    "leafer-ui": "1.0.0-rc.19"
+  },
+  "packageManager": "pnpm@7.11.0",
+  "engines": {
+    "node": "^16.11.0 || ^17.0.0"
+  }
+}

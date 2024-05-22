@@ -52,9 +52,6 @@ export class ComfyDesignSky {
 
     this.bindEvents()
 
-
-    console.log(design.registerProxyProperties)
-
     /**
      * proxy 'grid' 'ruler' to ComfyDesign
      */

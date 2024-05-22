@@ -83,11 +83,11 @@ export class ComfyDesignCtor<C = {}> extends EventEmitter {
   static plugins: DesignPluginItem[] = []
 
   static use(ctor: DesignPlugin) {
-    const installed = ComfyDesignCtor.plugins.some(plugin => plugin.ctor === ctor)
+    const installed = ComfyDesignCtor.plugins.find(plugin => plugin.ctor === ctor)
 
     if (installed) {
       if (__DEV__) {
-        logger.warn(`Plugin has already been registered.`)
+        logger.warn(`Plugin '${installed.name}' has already been registered.`)
       }
 
       return ComfyDesignCtor

@@ -1,6 +1,6 @@
-export type AnyFun = (...args: any[]) => any
+export type IFun = (...args: any[]) => any
 
-export type AnyObject = Record<string, any>
+export type IObject = Record<string, any>
 
 const toString = Object.prototype.toString
 
@@ -15,19 +15,19 @@ export function isUndef(unk: unknown) {
   return unk === undefined
 }
 
-export function isFun(unk: unknown): unk is AnyFun {
+export function isFun(unk: unknown): unk is IFun {
   return typeof unk === 'function'
 }
 
 export const isPlainObj = isType<object>('Object')
 
-export function isObject(unk: unknown): unk is AnyObject {
+export const isBlob = isType<Blob>('Blob')
+
+export function isObject(unk: unknown): unk is IObject {
   return typeof unk === 'object' && unk !== null
 }
 
-export function isArray(unk: unknown): unk is any[] {
-  return Array.isArray(unk)
-}
+export const isArray = Array.isArray
 
 export function isStr(unk: unknown): unk is string {
   return typeof unk === 'string'

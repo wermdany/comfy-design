@@ -1,11 +1,11 @@
 {
-  "name": "@comfy-design/shapes",
+  "name": "@comfy-design/tree",
   "version": "0.0.0",
-  "description": "@comfy-design/edishapestor",
+  "description": "@comfy-design/tree",
   "type": "module",
   "main": "index.js",
-  "module": "dist/shapes.esm-bundler.js",
-  "types": "dist/shapes.d.ts",
+  "module": "dist/tree.esm-bundler.js",
+  "types": "dist/tree.d.ts",
   "keywords": [
     "poster",
     "design",
@@ -15,8 +15,11 @@
   "license": "MIT",
   "dependencies": {
     "@comfy-design/shared": "workspace:*",
+    "@comfy-design/core": "workspace:*",
+    "@comfy-design/shapes": "workspace:*",
     "@leafer-ui/interface": "1.0.0-rc.22",
     "@leafer-ui/core": "1.0.0-rc.22",
+    "@leafer-in/editor": "1.0.0-rc.22",
     "leafer-ui": "1.0.0-rc.22"
   },
   "packageManager": "pnpm@7.11.0",

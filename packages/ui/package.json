@@ -15,16 +15,19 @@
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^10.9.0",
     "ant-design-vue": "^4.1.2",
+    "comfy-design": "workspace:*",
     "dayjs": "^1.11.10",
+    "file-saver": "^2.0.5",
+    "leafer-ui": "1.0.0-rc.22",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "use-antdv-css": "^2.0.5",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
-    "vue-router": "^4.3.0",
-    "leafer-ui": "1.0.0-rc.19"
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",

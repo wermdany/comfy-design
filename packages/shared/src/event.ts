@@ -1,11 +1,11 @@
-import type { AnyFun, AnyObject } from './is'
+import type { IFun, IObject } from './is'
 
-interface EventAnyFun extends AnyFun {
-  fun?: AnyFun
+interface EventIFun extends IFun {
+  fun?: IFun
 }
 
 interface EventEmitterEvents {
-  [name: string]: [EventAnyFun, AnyObject][]
+  [name: string]: [EventIFun, IObject][]
 }
 
 export class EventEmitter {
@@ -15,7 +15,7 @@ export class EventEmitter {
     this.events = {}
   }
 
-  public on(type: string, call: AnyFun, ctx: AnyObject = this) {
+  public on(type: string, call: IFun, ctx: IObject = this) {
     if (!this.events[type]) {
       this.events[type] = []
     }
@@ -25,7 +25,7 @@ export class EventEmitter {
     return this
   }
 
-  public once(type: string, call: AnyFun, ctx: AnyObject = this) {
+  public once(type: string, call: IFun, ctx: IObject = this) {
     const compose = (...args: any[]) => {
       this.off(type, compose)
 
@@ -39,7 +39,7 @@ export class EventEmitter {
     return this
   }
 
-  public off(type: string, call: AnyFun) {
+  public off(type: string, call: IFun) {
     const events = this.events[type]
 
     if (!events) return this

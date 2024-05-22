@@ -12,11 +12,11 @@ import WorkspaceNav from '@/views/workspace/EditerWorkspace/WorkspaceNav/index.v
 import WorkspacePanel from '@/views/workspace/EditerWorkspace/WorkspacePanel/index.vue'
 import WorkspaceView from '@/views/workspace/EditerWorkspace/WorkspaceView/index.vue'
 
-const design = ComfyDesign({ view: 'workspace-view', editor: true, sky: true })
+const design = ComfyDesign({ view: 'workspace-view', editor: true, sky: true, export: true, schema: true })
 
 const system = useSystemStore()
 
-const Text = computed(() => (system.mode === 'dark' ? '切换为亮色' : '切换为暗色'))
+const Text = computed(() => (system.mode === 'dark' ? 'light' : 'dark'))
 
 const handleToggleThemeMode = () => {
   const mode = system.mode === 'dark' ? 'light' : 'dark'
@@ -31,7 +31,8 @@ const rect = new Rect({
   height: 100,
   fill: '#999',
   editable: true,
-  editSize: 'size'
+  editSize: 'size',
+  name: '矩形'
 })
 
 onMounted(() => {
@@ -39,10 +40,14 @@ onMounted(() => {
 
   design.Tree.add(rect)
 
+  console.log(design.Tree.toJSON())
+
   console.log(design)
 })
 
-const handleDebugger = () => {}
+const handleDebugger = () => {
+  console.log(design)
+}
 
 defineOptions({
   name: 'Workspace'

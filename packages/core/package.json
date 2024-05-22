@@ -12,9 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "@comfy-design/shared": "workspace:*",
-    "@leafer-in/editor": "1.0.0-rc.19",
-    "@leafer-ui/interface": "1.0.0-rc.19",
-    "leafer-ui": "1.0.0-rc.19"
+    "@leafer-in/editor": "1.0.0-rc.22",
+    "@leafer-ui/interface": "1.0.0-rc.22",
+    "leafer-ui": "1.0.0-rc.22"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

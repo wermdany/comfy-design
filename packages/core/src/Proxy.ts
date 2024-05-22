@@ -1,4 +1,4 @@
-import { getProperty, setProperty, type AnyObject, isUndef } from '@comfy-design/shared'
+import { getProperty, setProperty, type IObject, isUndef } from '@comfy-design/shared'
 import { logger } from './Util'
 import type { DesignPlugin } from './ComfyDesignCore'
 
@@ -32,7 +32,7 @@ export function withPluginsProxyProperty(plugin: DesignPlugin, property?: string
 export class ComfyDesignProxy implements ProxyImpApi {
   private proxyKeys: Record<string, string> = {}
 
-  private original!: AnyObject
+  private original!: IObject
 
   constructor(property?: RegisterProxyPropertyItem[]) {
     if (property) {
@@ -40,7 +40,7 @@ export class ComfyDesignProxy implements ProxyImpApi {
     }
   }
 
-  public enabled<T extends AnyObject>(target: T): T {
+  public enabled<T extends IObject>(target: T): T {
     if (this.original) return this.original as T
 
     this.original = target

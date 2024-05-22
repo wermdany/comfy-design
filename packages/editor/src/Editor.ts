@@ -4,6 +4,7 @@ import { mergeConfig } from '@comfy-design/shared'
 import { PluginOrder, withPluginsProxyProperty } from '@comfy-design/core'
 
 import type { IBoundsData, IUI, IEditorConfig } from '@leafer-ui/interface'
+import type { IEditor } from '@leafer-in/interface'
 import type { ComfyDesign } from '@comfy-design/core'
 
 export const defaultEditorConfig: EditorConfig = {
@@ -86,7 +87,7 @@ export class ComfyDesignEditor {
     this.updateText(this.getEditorList(editor))
   }
 
-  private getEditorList(editor: Editor): IUI[] {
+  private getEditorList(editor: IEditor): IUI[] {
     return editor.list.slice() || []
   }
 

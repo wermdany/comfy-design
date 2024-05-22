@@ -8,10 +8,5 @@
     "lib": ["ESNext"],
     "types": ["node"]
   },
-  "include": [
-    "scripts/*.ts",
-    "packages/*/src/**/scripts/*.ts",
-    "packages/ui/vite.config.ts",
-    "package.json"
-  ]
+  "include": ["scripts/*.ts", "packages/*/src/**/scripts/*.ts", "packages/ui/vite.config.ts", "package.json"]
 }

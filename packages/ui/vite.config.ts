@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
       ]
     : []
 
-  const watchDefine = isWatchAliasModule ? { __DEV__: true } : {}
+  const watchDefine = isWatchAliasModule ? { __DEV__: true, __VERSION__: `'1'` } : {}
 
   return {
     plugins: [vue()],

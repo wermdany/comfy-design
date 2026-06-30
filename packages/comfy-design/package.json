@@ -12,9 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@comfy-design/core": "workspace:*",
-    "@comfy-design/editor": "workspace:*",
-    "@comfy-design/sky": "workspace:*",
-    "@comfy-design/tree": "workspace:*"
+    "@comfy-design/plugins": "workspace:*"
   },
   "packageManager": "pnpm@7.11.0",
   "engines": {

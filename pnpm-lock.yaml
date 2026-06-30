@@ -35,14 +35,10 @@ importers:
   packages/comfy-design:
     specifiers:
       '@comfy-design/core': workspace:*
-      '@comfy-design/editor': workspace:*
-      '@comfy-design/sky': workspace:*
-      '@comfy-design/tree': workspace:*
+      '@comfy-design/plugins': workspace:*
     dependencies:
       '@comfy-design/core': link:../core
-      '@comfy-design/editor': link:../editor
-      '@comfy-design/sky': link:../sky
-      '@comfy-design/tree': link:../tree
+      '@comfy-design/plugins': link:../plugins
 
   packages/core:
     specifiers:
@@ -56,9 +52,10 @@ importers:
       '@leafer-ui/interface': 1.0.0-rc.22
       leafer-ui: 1.0.0-rc.22
 
-  packages/editor:
+  packages/plugins:
     specifiers:
       '@comfy-design/core': workspace:*
+      '@comfy-design/shapes': workspace:*
       '@comfy-design/shared': workspace:*
       '@leafer-in/editor': 1.0.0-rc.22
       '@leafer-in/interface': 1.0.0-rc.22
@@ -67,6 +64,7 @@ importers:
       leafer-ui: 1.0.0-rc.22
     dependencies:
       '@comfy-design/core': link:../core
+      '@comfy-design/shapes': link:../shapes
       '@comfy-design/shared': link:../shared
       '@leafer-in/editor': 1.0.0-rc.22
       '@leafer-in/interface': 1.0.0-rc.22
@@ -88,42 +86,6 @@ importers:
 
   packages/shared:
     specifiers: {}
-
-  packages/sky:
-    specifiers:
-      '@comfy-design/core': workspace:*
-      '@comfy-design/shapes': workspace:*
-      '@comfy-design/shared': workspace:*
-      '@leafer-in/editor': 1.0.0-rc.22
-      '@leafer-ui/core': 1.0.0-rc.22
-      '@leafer-ui/interface': 1.0.0-rc.22
-      leafer-ui: 1.0.0-rc.22
-    dependencies:
-      '@comfy-design/core': link:../core
-      '@comfy-design/shapes': link:../shapes
-      '@comfy-design/shared': link:../shared
-      '@leafer-in/editor': 1.0.0-rc.22
-      '@leafer-ui/core': 1.0.0-rc.22
-      '@leafer-ui/interface': 1.0.0-rc.22
-      leafer-ui: 1.0.0-rc.22
-
-  packages/tree:
-    specifiers:
-      '@comfy-design/core': workspace:*
-      '@comfy-design/shapes': workspace:*
-      '@comfy-design/shared': workspace:*
-      '@leafer-in/editor': 1.0.0-rc.22
-      '@leafer-ui/core': 1.0.0-rc.22
-      '@leafer-ui/interface': 1.0.0-rc.22
-      leafer-ui: 1.0.0-rc.22
-    dependencies:
-      '@comfy-design/core': link:../core
-      '@comfy-design/shapes': link:../shapes
-      '@comfy-design/shared': link:../shared
-      '@leafer-in/editor': 1.0.0-rc.22
-      '@leafer-ui/core': 1.0.0-rc.22
-      '@leafer-ui/interface': 1.0.0-rc.22
-      leafer-ui: 1.0.0-rc.22
 
   packages/ui:
     specifiers:

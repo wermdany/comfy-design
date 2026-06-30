@@ -1,11 +1,11 @@
 {
-  "name": "@comfy-design/tree",
+  "name": "@comfy-design/plugins",
   "version": "0.0.0",
-  "description": "@comfy-design/tree",
+  "description": "@comfy-design/plugins",
   "type": "module",
   "main": "index.js",
-  "module": "dist/tree.esm-bundler.js",
-  "types": "dist/tree.d.ts",
+  "module": "dist/plugins.esm-bundler.js",
+  "types": "dist/plugins.d.ts",
   "keywords": [
     "poster",
     "design",
@@ -20,6 +20,7 @@
     "@leafer-ui/interface": "1.0.0-rc.22",
     "@leafer-ui/core": "1.0.0-rc.22",
     "@leafer-in/editor": "1.0.0-rc.22",
+    "@leafer-in/interface": "1.0.0-rc.22",
     "leafer-ui": "1.0.0-rc.22"
   },
   "packageManager": "pnpm@7.11.0",
